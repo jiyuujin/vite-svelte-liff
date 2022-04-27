@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "vite-svelte-liff",
+      "request": "launch",
+      "type": "node"
+    },
+    {
+      "name": "vite-svelte-liff (profile mode)",
+      "request": "launch",
+      "type": "node",
+      "flutterMode": "profile"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "vite-svelte-liff",
+  "version": "0.1.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ignore-path .gitignore",
+    "lint:fix": "eslint . --ignore-path .gitignore --fix",
+    "format": "prettier . --write --plugin-search-dir=. --ignore-path .gitignore"
+  },
+  "dependencies": {
+    "@line/liff": "2.19.1"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "1.0.0-next.30",
+    "@typescript-eslint/eslint-plugin": "5.21.0",
+    "@typescript-eslint/parser": "5.21.0",
+    "eslint": "8.14.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-svelte3": "3.4.1",
+    "prettier": "2.6.2",
+    "prettier-plugin-svelte": "2.7.0",
+    "svelte": "3.44.0",
+    "typescript": "4.6.3",
+    "vite": "2.7.2",
+    "vite-tsconfig-paths": "3.4.1"
+  },
+  "type": "module"
+}
