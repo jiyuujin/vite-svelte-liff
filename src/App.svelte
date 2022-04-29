@@ -2,6 +2,7 @@
   import { onMount } from 'svelte'
   import liff from '@line/liff'
 
+  let profile = {}
   let errorMessage = ''
 
   async function init() {
@@ -10,13 +11,18 @@
     })
   }
 
-  let promise = init().then(async () => {
-    //
+  const getLiffProfile = async () => {
+    return await liff.getProfile()
+  }
+
+  let promise = init().then(() => {
+    profile = getLiffProfile()
   })
 
   onMount(async () => {
     if (!liff.isInClient()) {
       liff.login()
+      profile = getLiffProfile()
     }
   })
 </script>
