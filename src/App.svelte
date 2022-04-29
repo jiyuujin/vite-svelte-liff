@@ -61,9 +61,6 @@
         :<span>{liff.getLineVersion()}</span>
       </li>
     </ul>
-    <hr />
-    <h3>LIFF QR Code</h3>
-    <img src="./liff-qr.png" alt="" />
   {:catch e}
     <p>LIFF init failed.</p>
     <p><code>{`${e}`}</code></p>
