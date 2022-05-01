@@ -1,6 +1,17 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import liff from '@line/liff'
+  import LiffInspectorPlugin from '@line/liff-inspector'
+  import { LiffMockPlugin } from '@line/liff-mock'
+
+  liff.use(
+    new LiffInspectorPlugin({
+      origin: import.meta.env.VITE_LIFF_INSPECTOR_ORIGIN
+        ? import.meta.env.VITE_LIFF_INSPECTOR_ORIGIN
+        : 'ws://localhost:9222',
+    }),
+  )
+  liff.use(new LiffMockPlugin())
 
   let profile = {}
   let errorMessage = ''
@@ -9,6 +20,13 @@
     return await liff.init({
       liffId: import.meta.env.VITE_LIFF_ID,
     })
+  }
+
+  const setLiffMock = () => {
+    liff.$mock.set((p) => ({
+      ...p,
+      getProfile: { displayName: '[mock] Test', userId: '1234' },
+    }))
   }
 
   const getLiffProfile = async () => {
@@ -21,6 +39,7 @@
 
   onMount(async () => {
     if (!liff.isInClient()) {
+      setLiffMock()
       liff.login()
       profile = getLiffProfile()
     }
