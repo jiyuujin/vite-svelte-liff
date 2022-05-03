@@ -28,68 +28,45 @@
 </script>
 
 <main>
-  <h1>Liff Demo</h1>
-  {#await promise}
-    <p>LIFF init...</p>
-  {:then}
-    <p>LIFF init succeeded.</p>
-    <h4 class="error">{errorMessage}</h4>
-    <h3>LIFF Info</h3>
-    <ul>
-      <li>
-        <strong>LIFF Browser</strong>
-        :<span>{liff.isInClient()}</span>
-      </li>
-      <li>
-        <strong>Login Status</strong>
-        :<span>{liff.isLoggedIn()}</span>
-      </li>
-      <li>
-        <strong>Language</strong>
-        :<span>{liff.getLanguage()}</span>
-      </li>
-      <li>
-        <strong>OS</strong>
-        :<span>{liff.getOS()}</span>
-      </li>
-      <li>
-        <strong>LIFF Ver</strong>
-        :<span>{liff.getVersion()}</span>
-      </li>
-      <li>
-        <strong>LINE Ver</strong>
-        :<span>{liff.getLineVersion()}</span>
-      </li>
-    </ul>
-  {:catch e}
-    <p>LIFF init failed.</p>
-    <p><code>{`${e}`}</code></p>
-  {/await}
+  <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+      <h1 class="mt-6 text-center text-4xl font-extrabold text-gray-900">Liff Demo</h1>
+      {#await promise}
+        <p class="text-center">LIFF init...</p>
+      {:then}
+        <p class="text-center">LIFF init succeeded.</p>
+        <h4 class="text-amber-700">{errorMessage}</h4>
+        <h3 class="mt-6 text-center text-3xl font-extrabold text-gray-900">LIFF Info</h3>
+        <ul class="list-none text-center p-0 m-0">
+          <li class="p-1 border">
+            <strong>LIFF Browser</strong>
+            :<span>{liff.isInClient()}</span>
+          </li>
+          <li class="p-1 border">
+            <strong>Login Status</strong>
+            :<span class="m-1">{liff.isLoggedIn()}</span>
+          </li>
+          <li class="p-1 border">
+            <strong>Language</strong>
+            :<span class="m-1">{liff.getLanguage()}</span>
+          </li>
+          <li class="p-1 border">
+            <strong>OS</strong>
+            :<span class="m-1">{liff.getOS()}</span>
+          </li>
+          <li class="p-1 border">
+            <strong>LIFF Ver</strong>
+            :<span class="m-1">{liff.getVersion()}</span>
+          </li>
+          <li class="p-1 border">
+            <strong>LINE Ver</strong>
+            :<span class="m-1">{liff.getLineVersion()}</span>
+          </li>
+        </ul>
+      {:catch e}
+        <p class="text-center">LIFF init failed.</p>
+        <p><code>{`${e}`}</code></p>
+      {/await}
+    </div>
+  </div>
 </main>
-
-<style>
-  main {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-  }
-  .error {
-    color: red;
-  }
-  ul {
-    list-style-type: none;
-    text-align: left;
-    margin: 0;
-    padding: 0;
-  }
-  li {
-    padding: 5px;
-    border: 1px solid #dddddd;
-  }
-  li span {
-    margin: 5px;
-  }
-</style>
